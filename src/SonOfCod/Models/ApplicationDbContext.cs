@@ -13,9 +13,11 @@ namespace SonOfCod.Models
         {
 
         }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
         }
+        public DbSet<MailingList> MailingLists { get; set; }
     }
 }

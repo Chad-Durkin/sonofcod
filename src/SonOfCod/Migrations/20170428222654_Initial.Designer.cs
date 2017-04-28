@@ -8,7 +8,7 @@ using SonOfCod.Models;
 namespace SonOfCod.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170428202336_Initial")]
+    [Migration("20170428222654_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -171,6 +171,20 @@ namespace SonOfCod.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("SonOfCod.Models.MailingList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MailingLists");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
