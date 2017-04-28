@@ -1,2 +1,48 @@
 ﻿body {
+    background-image: url(https://s-media-cache-ak0.pinimg.com/564x/8a/06/1d/8a061df489608bf1347cb60326e3b371.jpg);
+    background-size: cover; 
+    color: white;
+}
+
+ .navbar {
+     background-color: white;
+     font-size: 30px;
+ }
+
+.mainHeader {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+}
+
+.mailingHeader h1 {
+    color: white;
+    font-size: 90px;
+}
+
+.mailingList {
+    color: white;
+    font-size: 27px;
+}
+
+.registerInput {
+    padding-top: 10px;
+}
+
+.mailingBodyAdmin {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+input {
+    background-color: black;
+}
+
+a {
+    color: white;
+}
+
+.logout {
+    margin: 10px;
 }

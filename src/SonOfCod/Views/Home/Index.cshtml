@@ -10,19 +10,27 @@
 {
 
     <h1>Hello Admin @User.Identity.Name!</h1>
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log Out" />
-
-    }
-        <h1>Mailing List</h1>
-        <ul>
-        @foreach(var user in ViewBag.MailingList)
+    <div class="logout">
+        @using (Html.BeginForm("LogOff", "Account"))
         {
-            <li>Recipient: @user.Name | Email: @user.Email</li>
+            <input type="submit" class="btn btn-default" value="Log Out" />
 
         }
-        </ul>
+    </div>
+    <div class="mailingBodyAdmin">
+        <div class="mailingHeader">
+            <h1>Mailing List</h1>
+        </div>
+        <div class="mailingList">
+
+            @foreach(var user in ViewBag.MailingList)
+            {
+                <p><strong>Recipient:</strong> @user.Name | <strong>Email:</strong> @user.Email</p>
+
+            }
+
+        </div>
+    </div>
 }
 else
 {

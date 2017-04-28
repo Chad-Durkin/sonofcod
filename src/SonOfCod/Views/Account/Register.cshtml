@@ -11,15 +11,21 @@
 <h4>
     @using (Html.BeginForm("Register", "Account", FormMethod.Post))
     {
-        @Html.LabelFor(m => m.Email)
-        @Html.TextBoxFor(m => m.Email)
-
-        @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password)
-
-        @Html.LabelFor(m => m.ConfirmPassword)
-        @Html.PasswordFor(m => m.ConfirmPassword)
-
+        <div class="registerInput">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            <br />
+        </div>
+        <div class="registerInput">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            <br />
+        </div>
+        <div class="registerInput">
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            <br />
+        </div>
         <input type="submit" value="Register" />
 
     }
