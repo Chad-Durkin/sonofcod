@@ -19,7 +19,7 @@
         <ul>
         @foreach(var user in ViewBag.MailingList)
         {
-            <li>user.Name | user.Email</li>
+            <li>Recipient: @user.Name | Email: @user.Email</li>
 
         }
         </ul>

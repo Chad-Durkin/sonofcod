@@ -1,4 +1,17 @@
-﻿@{
+﻿@model IEnumerable<SonOfCod.Models.Marketing>
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome to the Son of Cod Information Page!</h2>
+<p>Here you will find our latest updates about our sales, commerce, and produce!</p>
+@foreach(var post in Model)
+{
+    <div class="marketPost">
+    <img src="@post.ImageUrl" />
+    <h3>@post.Title</h3>
+    <p>@post.Description</p>
+    </div>
 }
