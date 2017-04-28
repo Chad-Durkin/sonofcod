@@ -1,6 +1,22 @@
-﻿@{
+﻿@model SonOfCod.Models.Marketing
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Add New Information To Present To Consumers!</h1>
+<h1>Add New Content To Present To Consumers</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title)
+
+    @Html.LabelFor(m => m.Description)
+    @Html.TextBoxFor(m => m.Description)
+
+    @Html.LabelFor(m => m.ImageUrl)
+    @Html.TextBoxFor(m => m.ImageUrl)
+
+    <input type="submit" value="Add Content" />
+}

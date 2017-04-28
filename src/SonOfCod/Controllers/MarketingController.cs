@@ -42,7 +42,7 @@ namespace SonOfCod.Controllers
         {
             _db.Marketings.Add(newInfo);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Marketing", "Home");
         }
     }
 }
