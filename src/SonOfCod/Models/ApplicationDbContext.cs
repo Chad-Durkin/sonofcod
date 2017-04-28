@@ -19,5 +19,6 @@ namespace SonOfCod.Models
             base.OnModelCreating(builder);
         }
         public DbSet<MailingList> MailingLists { get; set; }
+        public DbSet<Marketing> Marketings { get; set; }
     }
 }

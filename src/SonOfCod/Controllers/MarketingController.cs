@@ -12,44 +12,37 @@ using System.IO;
 using System.Diagnostics;
 using SonOfCod.ViewModels;
 using SonOfCod.Models;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SonOfCod.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+    public class MarketingController : Controller
     {
         private IHostingEnvironment _environment;
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public HomeController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext db, IHostingEnvironment environment)
+        public MarketingController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext db, IHostingEnvironment environment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _db = db;
             _environment = environment;
         }
-        // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Create()
         {
-            ViewBag.MailingList = _db.MailingLists.ToList();
             return View();
         }
-        [HttpPost, ActionName("Index")]
-        public IActionResult AddToMailList()
+        [HttpPost]
+        public IActionResult Create(Marketing newInfo)
         {
-            var name = Request.Form["Name"];
-            var email = Request.Form["Email"];
-            var newMailList = new MailingList { Name = name, Email = email };
-            _db.MailingLists.Add(newMailList);
+            _db.Marketings.Add(newInfo);
             _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public IActionResult Marketing()
-        {
-            return View(_db.Marketings.ToList());
+            return View();
         }
     }
 }
