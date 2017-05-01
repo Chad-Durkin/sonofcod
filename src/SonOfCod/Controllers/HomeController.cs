@@ -12,6 +12,7 @@ using System.IO;
 using System.Diagnostics;
 using SonOfCod.ViewModels;
 using SonOfCod.Models;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -50,6 +51,13 @@ namespace SonOfCod.Controllers
         public IActionResult Marketing()
         {
             return View(_db.Marketings.ToList());
+        }
+        [HttpPost]
+        public IActionResult Marketing(Marketing post)
+        {
+            _db.Entry(post).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Marketing");
         }
     }
 }

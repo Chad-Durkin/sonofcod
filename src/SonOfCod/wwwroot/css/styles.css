@@ -46,3 +46,12 @@ a {
 .logout {
     margin: 10px;
 }
+
+.marketPost {
+    margin-bottom: 50px;
+}
+
+.editPost {
+    color: orangered;
+    margin-bottom: 20px;
+}

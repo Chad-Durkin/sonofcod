@@ -10,8 +10,32 @@
 @foreach(var post in Model)
 {
     <div class="marketPost">
-    <img src="@post.ImageUrl" />
-    <h3>@post.Title</h3>
-    <p>@post.Description</p>
+        <div class="postImg">
+            <img src="@post.ImageUrl" />
+        </div>
+        <div class="postContent">
+            <h3>@post.Title</h3>
+            <p>@post.Description</p>
+        </div>
     </div>
+    @if(User.Identity.IsAuthenticated)
+    {
+        @using (Html.BeginForm())
+        {
+        <div class="editPost">
+            <h2>Edit Post..</h2>
+            @Html.HiddenFor(Id => post.Id)
+
+            @Html.LabelFor(ImageUrl => post.ImageUrl)
+            @Html.TextBoxFor(ImageUrl => post.ImageUrl)
+            <br />
+            @Html.LabelFor(Title => post.Title)
+            @Html.TextBoxFor(Title => post.Title)
+            <br />
+            @Html.LabelFor(Description => post.Description)
+            @Html.TextBoxFor(Description => post.Description)
+            <input type="submit" value="Edit Post" />
+        </div>
+        }
+    }
 }
